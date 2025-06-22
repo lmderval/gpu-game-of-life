@@ -1,3 +1,16 @@
 #pragma once
 
-void hello();
+#include <cstddef>
+
+class GameOfLife
+{
+public:
+    GameOfLife(std::size_t size);
+    ~GameOfLife();
+
+    void reset();
+
+private:
+    std::size_t size_;
+    int* grid_;
+};

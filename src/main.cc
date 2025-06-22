@@ -2,6 +2,6 @@
 
 int main()
 {
-    hello();
+    GameOfLife game(16);
     return 0;
 }

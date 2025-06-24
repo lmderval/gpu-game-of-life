@@ -93,3 +93,22 @@ void GameOfLife::step()
 
     _device_step<<<grid_size, block_size>>>(grid_, size_);
 }
+
+void GameOfLife::dump(std::ostream& os) const
+{
+    cudaDeviceSynchronize();
+    for (std::size_t i = 0; i < size_; i++)
+    {
+        for (std::size_t j = 0; j < size_; j++)
+        {
+            os << (grid_[j + i * size_] ? "x " : "  ");
+        }
+        os << std::endl;
+    }
+}
+
+std::ostream& operator<<(std::ostream& os, const GameOfLife& game)
+{
+    game.dump(os);
+    return os;
+}

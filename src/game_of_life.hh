@@ -9,6 +9,7 @@ public:
     ~GameOfLife();
 
     void reset();
+    void step();
 
 private:
     std::size_t size_;
